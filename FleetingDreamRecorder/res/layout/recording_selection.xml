@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <!-- Abbr Audio Player -->
+
+	<fragment class="net.lapasa.fleetingdreamrecorder.playback.AbbreviatedAudioPlayerFragment"
+        android:id="@+id/player"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Library List -->
+
+    <fragment class="net.lapasa.fleetingdreamrecorder.playback.DreamLibraryListFragment"
+        android:layout_below="@id/player"
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+        
+
+</RelativeLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="50dp"
+    android:gravity="center">
+    
+    <TextView
+        android:id="@+id/greetings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="Greeting goes here"
+        android:textAppearance="?android:attr/textAppearanceLarge" 
+        android:textSize="50dp"
+        android:layout_centerHorizontal="true"/>
+    
+    <TextView android:id="@+id/instructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/greetings"
+        android:text= "Instructions go here"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"/>
+    
+
+    <ToggleButton
+        android:id="@+id/recordingBtn"
+        android:layout_below="@id/instructions"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textOn="Recording"
+        android:textOff="Record" 
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+    
+
+
+</RelativeLayout>
