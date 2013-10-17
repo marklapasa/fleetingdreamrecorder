@@ -18,8 +18,8 @@
         android:id="@+id/title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/playPauseBtn"
         android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@id/playPauseBtn"
         android:ellipsize="marquee"
         android:text="Track Title"
         android:textAppearance="?android:attr/textAppearanceLarge" />

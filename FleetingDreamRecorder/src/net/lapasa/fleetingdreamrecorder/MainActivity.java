@@ -48,6 +48,7 @@ public class MainActivity extends Activity implements IAudioRecordingListener
 
 		viewPager = (ViewPager) findViewById(R.id.viewPager);
 		viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
+		viewPager.setOffscreenPageLimit(2);
 		pagerAdapter = new MainSlidePagerAdapter(getFragmentManager(), this);
 
 		viewPager.setAdapter(pagerAdapter);

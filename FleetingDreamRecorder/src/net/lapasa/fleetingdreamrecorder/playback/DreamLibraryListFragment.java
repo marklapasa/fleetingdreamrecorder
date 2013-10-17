@@ -18,6 +18,7 @@ public class DreamLibraryListFragment extends ListFragment implements Observer
 	private static AudioPlaybackService playbackSvc;
 	private DreamRecordingsModel model;
 	private DreamLibraryListAdapter listAdapter;
+	private RecordingListItem previousSelected;
 
 	public static DreamLibraryListFragment create()
 	{
@@ -47,6 +48,20 @@ public class DreamLibraryListFragment extends ListFragment implements Observer
 	@Override
 	public void update(Observable observable, Object data)
 	{
+		if (data instanceof String)
+		{
+			String str = (String) data;
+			if (str.equals(DreamRecordingsModel.RECORDING_SELECTED))
+			{
+				/*
+				if (previousSelected != null)
+				{
+					previousSelected.setSelectedListItem(false);
+				}				
+				listAdapter.setSelectedListItem(model.getSelectedRecording());
+				*/
+			}
+		}
 		listAdapter.notifyDataSetChanged();
 	}
 	
@@ -57,4 +72,20 @@ public class DreamLibraryListFragment extends ListFragment implements Observer
 		DreamRecording rc = (DreamRecording) listAdapter.getItem(position);
 		model.playNow(rc);
 	}
+
+	/**
+	 * Toggle the bold on the track name
+	 * @param v
+	 
+	private void setSelectedTrack(RecordingListItem rli)
+	{
+		if (previousSelected != null)
+		{
+			previousSelected.setSelectedListItem(false);
+		}
+
+		rli.setSelectedListItem(true);
+		previousSelected = rli;
+	}
+	*/
 }

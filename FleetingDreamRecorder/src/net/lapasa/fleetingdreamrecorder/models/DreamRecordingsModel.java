@@ -98,6 +98,37 @@ public class DreamRecordingsModel extends Observable
 		setChanged();
 		notifyObservers(RECORDING_SELECTED);
 	}
+	
+	public void loadNextRecording()
+	{
+		if (selectedRecordingIndex < recordings.size())
+		{
+			selectedRecordingIndex += 1;
+		}
+		else
+		{
+			selectedRecordingIndex = 0;
+		}
+		setSelectedRecording(recordings.get(selectedRecordingIndex));
+		setChanged();
+		notifyObservers(PLAY_NOW);
+	}
+	
+	public void loadPrevRecording()
+	{
+		if (selectedRecordingIndex > -1)
+		{
+			selectedRecordingIndex -= 1;
+		}
+		else
+		{
+			selectedRecordingIndex = recordings.size() - 1;
+		}
+		
+		setSelectedRecording(recordings.get(selectedRecordingIndex));
+		setChanged();
+		notifyObservers(PLAY_NOW);
+	}	
 
 	public int getSelectedRecordingIndex()
 	{

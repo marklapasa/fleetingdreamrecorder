@@ -2,26 +2,23 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-
-    <!-- Abbr Audio Player --> 
-
-	<fragment class="net.lapasa.fleetingdreamrecorder.playback.AbbreviatedAudioPlayerFragment"
-        android:id="@+id/player"
+    
+	<!-- Detail Audio Player -->
+	<fragment class="net.lapasa.fleetingdreamrecorder.playback.DetailAudioPlayerFragment"
+        android:id="@+id/detailAudioPlayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-	 
-	
+    <!-- Title -->
     
-		
-
-    <!-- Library List -->
-
-    <fragment class="net.lapasa.fleetingdreamrecorder.playback.DreamLibraryListFragment"
-        android:layout_below="@id/player"
-        android:id="@+id/list"
+	<!-- Comments List  -->
+	
+    <!-- Comment Entry  -->  
+	<fragment class="net.lapasa.fleetingdreamrecorder.comments.CommentEntryFragment"
+        android:id="@+id/commentEntry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" 
         android:layout_alignParentBottom="true"/>
-        
+     
+    
 
 </RelativeLayout>

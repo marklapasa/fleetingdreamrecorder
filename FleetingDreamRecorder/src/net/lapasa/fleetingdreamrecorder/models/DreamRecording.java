@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import android.app.AlertDialog;
 import android.text.format.DateUtils;
 
 import net.lapasa.fleetingdreamrecorder.recording.AudioRecordingService;
@@ -47,6 +48,12 @@ public class DreamRecording
 	{
 		String str = DateUtils.getRelativeTimeSpanString(created.getTimeInMillis(), Calendar.getInstance().getTimeInMillis(), DateUtils.MINUTE_IN_MILLIS).toString();
 		return str;
+	}
+
+	public void addComment(String body)
+	{
+		// TODO
+		
 	}
 
 }

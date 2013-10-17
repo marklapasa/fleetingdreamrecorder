@@ -6,6 +6,7 @@ import net.lapasa.fleetingdreamrecorder.R;
 import net.lapasa.fleetingdreamrecorder.models.DreamRecording;
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 public class DreamLibraryListAdapter extends BaseAdapter
 {
+	private static final String TAG = DreamLibraryListAdapter.class.getName();
 	private Context context;
 	private List<DreamRecording> recordings;
 	private LayoutInflater inflator;
@@ -48,29 +50,61 @@ public class DreamLibraryListAdapter extends BaseAdapter
 	public View getView(int position, View convertView, ViewGroup parent)
 	{
 		DreamRecording rc = recordings.get(position);
-		View v;
-		if (convertView != null)
+		
+		View view = null;
+		
+		if (convertView == null)
 		{
-			v = convertView; 
+			view = (ViewGroup) inflator.inflate(R.layout.recording_list_item, null);
 		}
 		else
 		{
-			v = inflator.inflate(R.layout.recording_list_item, parent, false);
+			view = convertView;
 		}
 		
 		// Set the title
-		TextView tv = ((TextView)v.findViewById(R.id.title));
+		TextView tv = ((TextView)view.findViewById(R.id.title));
 		tv.setText(rc.title);
 		
 		// Set the date
-		tv = ((TextView)v.findViewById(R.id.date));
+		tv = ((TextView)view.findViewById(R.id.date));
 		tv.setText(rc.getLastUpdatedAsLongStr());
 		
 		// Set the duration
-		tv = ((TextView)v.findViewById(R.id.duration));
-		tv.setText(rc.duration);
-		
-		return v;
+		tv = ((TextView)view.findViewById(R.id.duration));
+		tv.setText(rc.duration);		
+		/*
+		RecordingListItem view = null;
+		if (convertView == null)
+		{
+			view = new RecordingListItem(context);
+		}
+		if (view == null)
+		{
+			Log.e(TAG, "This shouldn't happen");
+		}
+		view.init(rc);
+		*/
+		return view;
 	}
+
+
+	
+	
+/*
+	public void setSelectedListItem(DreamRecording selectedRecording)
+	{
+		for (int i = 0; i < recordings.size(); i++)
+		{
+			if (getItem(i) == selectedRecording)
+			{
+				RecordingListItem rli = (RecordingListItem) getView(i, null, null);
+				rli.setSelectedListItem(true);
+				break;
+			}
+		}
+	}
+*/	
+
 
 }
